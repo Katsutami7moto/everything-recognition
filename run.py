@@ -3,7 +3,7 @@ import cv2
 from config import CASCADES
 
 
-def is_user_wants_quit():
+def if_user_wanna_quit():
     return cv2.waitKey(1) & 0xFF == ord('q')
 
 
@@ -11,7 +11,7 @@ def show_frame(frame):
     cv2.imshow('Video', frame)
 
 
-def draw_sqare(frame, color):
+def draw_square(frame, color):
         cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
 
 
@@ -41,10 +41,10 @@ if __name__ == "__main__":
             )]
             for capture in captures:
                 for (x, y, w, h) in capture:
-                    draw_sqare(webcam_frame, color)
+                    draw_square(webcam_frame, color)
         show_frame(webcam_frame)
 
-        if is_user_wants_quit():
+        if if_user_wanna_quit():
             break
     video_capture.release()
     cv2.destroyAllWindows()
