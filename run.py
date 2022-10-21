@@ -3,7 +3,7 @@ import cv2
 from config import CASCADES
 
 
-def if_user_wanna_quit():
+def user_wanna_quit():
     return cv2.waitKey(1) & 0xFF == ord('q')
 
 
@@ -12,7 +12,7 @@ def show_frame(frame):
 
 
 def draw_square(frame, color):
-        cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
+    cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
 
 
 def get_cascades():
@@ -44,7 +44,7 @@ if __name__ == "__main__":
                     draw_square(webcam_frame, color)
         show_frame(webcam_frame)
 
-        if if_user_wanna_quit():
+        if user_wanna_quit():
             break
     video_capture.release()
     cv2.destroyAllWindows()
